@@ -5,8 +5,7 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: myapp.example.com
-    http:
+  - http:
       paths:
       - pathType: Exact
         path: "/Ping"
