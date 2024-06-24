@@ -3,13 +3,15 @@ kind: Ingress
 metadata:
   name: dummy-ingress
 spec:
+  tls:
+    - secretName: tls-secret  # Reference the name of the Kubernetes Secret containing TLS keys
   rules:
-  - http:
-      paths:
-      - pathType: Exact
-        path: "/Ping"
-        backend:
-          service:
-            name: dummy-rest-api-service
-            port:
-              number: 80
+    - http:
+        paths:
+          - pathType: Exact
+            path: "/Ping"
+            backend:
+              service:
+                name: dummy-rest-api-service
+                port:
+                  number: 80
